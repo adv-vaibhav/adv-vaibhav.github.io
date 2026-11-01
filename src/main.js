@@ -31,7 +31,7 @@ const routes = {
 const pathname = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`;
 const route = routes[pathname] ?? (pathname.startsWith('/blogs/') ? { title: 'Writing', content: renderBlogs() } : routes['/']);
 document.title = `${route.title} | Adv. Kumar Vaibhav`;
-app.innerHTML = [renderHeader(), `<main class="page-content" id="main-content">${route.content}</main>`].join('\n');
+app.innerHTML = [renderHeader(pathname), `<main class="page-content" id="main-content">${route.content}</main>`].join('\n');
 
 document.querySelectorAll('.profile-photo img, .brand-mark img').forEach((photo) => {
   photo.addEventListener('error', () => {

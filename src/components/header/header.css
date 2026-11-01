@@ -5,6 +5,8 @@
 .brand-caption { display: block; margin-top: 2px; color: #c2ac91; font-size: 9px; font-weight: 500; letter-spacing: .18em; }
 .site-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 44px); color: #e5d9c9; font-size: 12px; letter-spacing: .04em; }
 .site-nav a { transition: color .2s ease; }
+.site-nav a.is-active:not(.nav-contact) { color: var(--copper-light); text-shadow: 0 0 18px rgba(201,155,90,.22); }
 .site-nav a:hover, .text-link:hover, .inline-link:hover { color: var(--copper-light); }
 .site-nav .nav-contact { display: flex; gap: 13px; align-items: center; padding: 10px 17px; border: 1px solid rgba(224, 189, 130, .55); color: var(--copper-light); }
+.site-nav .nav-contact.is-active { border-color: var(--copper-light); background: rgba(201,155,90,.14); box-shadow: 0 0 18px rgba(201,155,90,.1); }
 .menu-toggle { display: none; }

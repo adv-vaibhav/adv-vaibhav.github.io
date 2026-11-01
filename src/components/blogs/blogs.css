@@ -9,7 +9,8 @@
 .blog-list { margin: 0; padding: 0; list-style: none; }
 .blog-list-item { display: grid; width: 100%; grid-template-columns: 28px 1fr 16px; gap: 10px; align-items: start; padding: 16px 12px 16px 0; border: 0; border-top: 1px solid rgba(221,194,153,.1); background: transparent; color: #bfb09e; text-align: left; text-decoration: none; cursor: pointer; transition: color .2s ease, background .2s ease; }
 .blog-list-item:hover, .blog-list-item.is-active { color: var(--parchment); }
-.blog-list-item.is-active { background: linear-gradient(90deg, rgba(201,155,90,.1), transparent); }
+.blog-list-item.is-active { background: linear-gradient(90deg, rgba(201,155,90,.2), rgba(201,155,90,.035) 78%, transparent); box-shadow: inset 2px 0 var(--copper); }
+.blog-list-item.is-active .blog-list-number, .blog-list-item.is-active .blog-list-arrow { color: var(--copper-light); }
 .blog-list-number { color: #9b8060; font-size: 9px; letter-spacing: .1em; }
 .blog-list-title { font: 500 20px/1.15 var(--serif); }
 .blog-list-arrow { color: var(--copper); font-size: 12px; opacity: .65; }
