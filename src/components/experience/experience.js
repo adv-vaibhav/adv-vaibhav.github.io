@@ -14,5 +14,5 @@ function renderEarlierItem(item) {
 export function renderExperience() {
   const heading = sectionHeading('A CAREER IN PRACTICE', 'Experience with<br /><em>purpose and range.</em>', 'experience-heading');
   const headingWithLede = heading.replace('</div>', '<p class="section-lede">A progression from legal research and court practice to in-house legal operations.</p></div>');
-  return `<section class="experience section-shell" id="experience">${sectionIndex('03', 'EXPERIENCE')}<div class="experience-main">${headingWithLede}<div class="timeline">${experience.map(renderTimelineItem).join('')}<details class="earlier-work"><summary>Earlier experience <span aria-hidden="true">＋</span></summary><div class="earlier-list">${earlierExperience.map(renderEarlierItem).join('')}</div></details></div></div></section>`;
+  return `<section class="experience section-shell" id="experience">${sectionIndex('04', 'EXPERIENCE')}<div class="experience-main">${headingWithLede}<div class="timeline">${experience.map(renderTimelineItem).join('')}<details class="earlier-work"><summary>Earlier experience <span aria-hidden="true">＋</span></summary><div class="earlier-list">${earlierExperience.map(renderEarlierItem).join('')}</div></details></div></div></section>`;
 }

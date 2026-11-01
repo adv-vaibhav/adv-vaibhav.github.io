@@ -4,7 +4,7 @@ import { sectionIndex } from '../shared.js';
 const interests = ['Corporate governance', 'Financial regulation', 'Legal research', 'Compliance'];
 
 export function renderAbout() {
-  return `<section class="intro section-shell" id="about">${sectionIndex('01', 'ABOUT')}<div class="intro-copy">
+  return `<section class="intro section-shell" id="about">${sectionIndex('02', 'ABOUT')}<div class="intro-copy">
     <p class="eyebrow eyebrow-dark">A PRACTICE BUILT ON PERSPECTIVE</p><h2>From the courtroom<br />to <em>corporate counsel.</em></h2>
     <p class="body-large">A legal professional with experience across advocacy, financial services, and corporate legal operations.</p>
     <p>Vaibhav began his career in litigation, appearing in civil and commercial matters before the District &amp; Sessions Court, Gaya and the Patna High Court. He has since brought that practical foundation into in-house legal and compliance roles, supporting sound decisions through careful research, drafting, negotiation, and risk awareness.</p>

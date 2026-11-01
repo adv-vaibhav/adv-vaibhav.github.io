@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,6 +19,55 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Convert uploaded Word documents to Markdown
+        if: github.ref == 'refs/heads/main'
+        run: |
+          python -m pip install 'markitdown[docx]'
+          if find upload-here -maxdepth 1 -type f -iname '*.doc' -print -quit | grep -q .; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq libreoffice-writer
+          fi
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+          import tempfile
+
+          inbox = Path('upload-here')
+          output = Path('blogs')
+          output.mkdir(exist_ok=True)
+          documents = sorted(
+              (path for path in inbox.iterdir() if path.is_file() and path.suffix.lower() in {'.doc', '.docx'}),
+              key=lambda path: path.name.lower(),
+          )
+          existing = [int(match.group(1)) for path in output.glob('*.md') if (match := re.match(r'^(\d+)-', path.name))]
+          serial = max(existing, default=0)
+
+          for document in documents:
+              serial += 1
+              slug = re.sub(r'[^a-z0-9]+', '-', document.stem.lower()).strip('-') or 'article'
+              destination = output / f'{serial:03d}-{slug}.md'
+              if document.suffix.lower() == '.doc':
+                  with tempfile.TemporaryDirectory() as temporary_directory:
+                      subprocess.run(['soffice', '--headless', '--convert-to', 'docx', '--outdir', temporary_directory, str(document)], check=True)
+                      converted = Path(temporary_directory) / f'{document.stem}.docx'
+                      subprocess.run(['markitdown', str(converted), '-o', str(destination)], check=True)
+              else:
+                  subprocess.run(['markitdown', str(document), '-o', str(destination)], check=True)
+              document.unlink()
+          PY
+          if ! git diff --quiet -- blogs upload-here; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add blogs upload-here
+            git commit -m 'Publish converted blog posts'
+            git push origin HEAD:main
+          fi
       - uses: pnpm/action-setup@v4
         with:
           version: 9.15.9

@@ -22,3 +22,8 @@ The site deploys automatically to GitHub Pages when changes are pushed to the
 In the repository settings, go to **Settings → Pages** and set the build and
 deployment source to **GitHub Actions**. After the workflow succeeds, the site
 is available at <https://adv-vaibhav.github.io>.
+
+## Publish a blog post
+
+Add a `.doc` or `.docx` file to [`upload-here/`](upload-here/) and commit it to
+`main`.

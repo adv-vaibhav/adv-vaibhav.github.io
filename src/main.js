@@ -2,6 +2,7 @@ import './styles/global.css';
 import './components/header/header.css';
 import './components/hero/hero.css';
 import './components/about/about.css';
+import './components/blogs/blogs.css';
 import './components/focus/focus.css';
 import './components/experience/experience.css';
 import './components/education/education.css';
@@ -12,6 +13,7 @@ import './styles/responsive.css';
 import { renderHeader } from './components/header/header.js';
 import { renderHero } from './components/hero/hero.js';
 import { renderAbout } from './components/about/about.js';
+import { renderBlogs, setupBlogs } from './components/blogs/blogs.js';
 import { renderFocus } from './components/focus/focus.js';
 import { renderExperience } from './components/experience/experience.js';
 import { renderEducation } from './components/education/education.js';
@@ -21,6 +23,7 @@ import { renderFooter } from './components/footer/footer.js';
 const app = document.querySelector('#app');
 const routes = {
   '/': { title: 'Home', content: renderHero() },
+  '/blogs/': { title: 'Writing', content: renderBlogs() },
   '/about/': { title: 'About', content: renderAbout() },
   '/focus/': { title: 'Areas of Focus', content: renderFocus() },
   '/experience/': { title: 'Experience', content: renderExperience() },
@@ -53,3 +56,4 @@ siteNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', 
   siteNav.classList.remove('is-open');
 }));
 document.querySelector('#year').textContent = new Date().getFullYear();
+setupBlogs();

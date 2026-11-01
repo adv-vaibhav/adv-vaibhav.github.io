@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 
-const pageEntries = ['about', 'focus', 'experience', 'education', 'contact'];
+const pageEntries = ['blogs', 'about', 'focus', 'experience', 'education', 'contact'];
 
 export default defineConfig({
   build: {
