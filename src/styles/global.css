@@ -8,19 +8,23 @@
   --copper: #c99b5a;
   --copper-light: #e0bd82;
   --line: rgba(221, 194, 153, .2);
+  --site-header-height: 94px;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'DM Sans', Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-body { margin: 0; min-height: 100vh; background-color: #1a110e; background-image: linear-gradient(90deg, rgba(17,11,9,.94), rgba(25,15,11,.83) 40%, rgba(27,15,10,.7)), linear-gradient(0deg, rgba(17,11,9,.5), rgba(17,11,9,.26)), url('../../background.png'); background-position: center, center, center; background-size: cover, cover, cover; background-attachment: fixed, fixed, fixed; background-repeat: no-repeat; color: var(--parchment); font: 400 15px/1.7 var(--sans); }
+html { height: 100%; scroll-behavior: smooth; }
+body { width: 100%; height: 100%; margin: 0; overflow: hidden; background-color: #1a110e; background-image: linear-gradient(90deg, rgba(17,11,9,.94), rgba(25,15,11,.83) 40%, rgba(27,15,10,.7)), linear-gradient(0deg, rgba(17,11,9,.5), rgba(17,11,9,.26)), url('../../background.png'); background-position: center, center, center; background-size: cover, cover, cover; background-attachment: fixed, fixed, fixed; background-repeat: no-repeat; color: var(--parchment); font: 400 15px/1.7 var(--sans); }
+#app { width: 100%; height: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 ::selection { background: var(--copper); color: var(--ink); }
 .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 21px; color: var(--copper-light); font-size: 10px; font-weight: 600; letter-spacing: .2em; }
 h1 em, h2 em, h3 em { color: var(--copper-light); font-weight: 400; }
 .brand-mark, .footer-brand { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--copper); color: var(--copper-light); font: 600 18px var(--serif); letter-spacing: .04em; }
+.brand-mark { overflow: hidden; }
+.brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .profile-label, .column-label { margin: 0 0 10px; color: #a98d6a; font-size: 9px; font-weight: 600; letter-spacing: .18em; }
 .site-nav a:hover, .text-link:hover, .inline-link:hover { color: var(--copper-light); }
 .text-link, .inline-link { color: #e8d8c5; font-size: 12px; transition: color .2s ease; }
@@ -36,6 +40,11 @@ h2 { margin: 0; color: var(--parchment); font: 500 clamp(39px, 5vw, 59px)/.98 va
 .section-heading { max-width: 560px; }
 .section-heading .eyebrow { margin-bottom: 19px; }
 
-.page-content { min-height: calc(100vh - 88px); animation: rise-in .72s cubic-bezier(.2,.7,.2,1) both; }
+.page-content { position: fixed; inset: var(--site-header-height) 0 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scroll-behavior: smooth; scrollbar-color: var(--copper) rgba(26,17,14,.82); scrollbar-width: thin; animation: rise-in .72s cubic-bezier(.2,.7,.2,1) both; }
+.blog-list-wrap, .blog-reader, .blog-prose pre, .blog-table-wrap { scrollbar-color: var(--copper) rgba(26,17,14,.82); scrollbar-width: thin; }
+.page-content::-webkit-scrollbar, .blog-list-wrap::-webkit-scrollbar, .blog-reader::-webkit-scrollbar, .blog-prose pre::-webkit-scrollbar, .blog-table-wrap::-webkit-scrollbar { width: 9px; height: 9px; }
+.page-content::-webkit-scrollbar-track, .blog-list-wrap::-webkit-scrollbar-track, .blog-reader::-webkit-scrollbar-track, .blog-prose pre::-webkit-scrollbar-track, .blog-table-wrap::-webkit-scrollbar-track { background: rgba(26,17,14,.82); }
+.page-content::-webkit-scrollbar-thumb, .blog-list-wrap::-webkit-scrollbar-thumb, .blog-reader::-webkit-scrollbar-thumb, .blog-prose pre::-webkit-scrollbar-thumb, .blog-table-wrap::-webkit-scrollbar-thumb { border: 2px solid rgba(26,17,14,.82); border-radius: 8px; background: linear-gradient(180deg, var(--copper-light), var(--copper)); }
+.page-content::-webkit-scrollbar-thumb:hover, .blog-list-wrap::-webkit-scrollbar-thumb:hover, .blog-reader::-webkit-scrollbar-thumb:hover, .blog-prose pre::-webkit-scrollbar-thumb:hover, .blog-table-wrap::-webkit-scrollbar-thumb:hover { background: var(--copper-light); }
 @keyframes rise-in { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) { .page-content { animation: none; } }

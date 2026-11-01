@@ -1,4 +1,4 @@
-.site-header { position: absolute; z-index: 5; inset: 0 0 auto; height: 94px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 7.1vw, 112px); border-bottom: 1px solid rgba(241, 224, 200, .13); }
+.site-header { position: fixed; z-index: 10; inset: 0 0 auto; height: var(--site-header-height); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 7.1vw, 112px); border-bottom: 1px solid rgba(241, 224, 200, .13); background: rgba(26,17,14,.88); backdrop-filter: blur(12px); }
 .brand { display: flex; align-items: center; gap: 14px; }
 
 .brand-name { color: #f8f0e5; font-size: 14px; font-weight: 600; letter-spacing: .02em; }

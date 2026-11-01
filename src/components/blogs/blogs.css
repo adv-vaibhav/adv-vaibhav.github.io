@@ -1,8 +1,7 @@
-.blogs { min-height: calc(100vh - 88px); background: rgba(26,17,14,.72); }
-.blogs-heading { max-width: 700px; margin-bottom: 45px; }
-.blogs-heading h2 { margin-bottom: 17px; }
-.blogs-lede { max-width: 480px; margin: 0; color: #bfb09e; font-size: 13px; }
-.blogs-layout { display: grid; grid-template-columns: minmax(230px, .62fr) minmax(0, 1.38fr); height: min(62vh, 650px); min-height: 360px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.blogs { display: flex; min-height: 0; height: 100%; flex-direction: column; background: rgba(26,17,14,.72); }
+.section-shell.blogs { padding-top: 24px; padding-bottom: 20px; }
+.blogs .section-index { top: 24px; }
+.blogs-layout { display: grid; min-height: 0; flex: 1; grid-template-columns: minmax(230px, .62fr) minmax(0, 1.38fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .blog-sidebar { display: flex; min-height: 0; flex-direction: column; padding: 25px 26px 0 0; border-right: 1px solid var(--line); }
 .blog-sidebar .column-label { display: flex; justify-content: space-between; gap: 14px; color: var(--copper-light); }
 .blog-sidebar .column-label span { color: #927b61; font-size: 8px; }
@@ -40,8 +39,9 @@
 .blog-back { display: none; }
 
 @media (max-width: 700px) {
-  .blogs-heading { margin-bottom: 28px; }
-  .blogs-layout { display: block; height: min(58svh, 620px); min-height: 300px; border: 0; }
+  .section-shell.blogs { padding-top: 12px; padding-bottom: 12px; }
+  .blogs .section-index { margin-bottom: 12px; }
+  .blogs-layout { display: block; height: auto; border: 0; }
   .blog-sidebar { height: 100%; padding: 0; border: 0; }
   .blog-sidebar .column-label { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
   .blog-list-wrap { max-height: none; }

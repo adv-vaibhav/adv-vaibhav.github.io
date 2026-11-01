@@ -117,7 +117,7 @@ function renderPost(post) {
 export function renderBlogs() {
   const slug = decodeURIComponent(window.location.pathname.split('/').filter(Boolean)[1] ?? '');
   const current = posts.find((post) => post.slug === slug) ?? posts[0];
-  return `<section class="blogs section-shell" id="blogs">${sectionIndex('01', 'WRITING')}<div class="blogs-heading"><p class="eyebrow eyebrow-dark">NOTES &amp; PERSPECTIVES</p><h2>Thoughts on <em>the law.</em></h2><p class="blogs-lede">Observations on legal practice, regulation, and the ideas shaping the profession.</p></div><div class="blogs-layout"><aside class="blog-sidebar" aria-label="Article list"><p class="column-label">THE JOURNAL <span>${String(posts.length).padStart(2, '0')} ARTICLES</span></p><div class="blog-list-wrap">${renderList(current?.filename)}</div></aside><div class="blog-reader" aria-live="polite">${renderPost(current)}</div></div><button class="blog-back" type="button" aria-label="Back to article list"><span aria-hidden="true">←</span> All articles</button></section>`;
+  return `<section class="blogs section-shell" id="blogs">${sectionIndex('01', 'WRITING')}<div class="blogs-layout"><aside class="blog-sidebar" aria-label="Article list"><p class="column-label">THE JOURNAL <span>${String(posts.length).padStart(2, '0')} ARTICLES</span></p><div class="blog-list-wrap">${renderList(current?.filename)}</div></aside><div class="blog-reader" aria-live="polite">${renderPost(current)}</div></div><button class="blog-back" type="button" aria-label="Back to article list"><span aria-hidden="true">←</span> All articles</button></section>`;
 }
 
 export function setupBlogs() {
