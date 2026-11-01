@@ -5,6 +5,7 @@ export const profile = {
   location: 'Patna, Bihar · India',
   email: 'krvaibhav96@gmail.com',
   linkedIn: 'https://www.linkedin.com/in/adv-kumar-vaibhav-3b9728138/',
+  photoUrl: 'https://media.licdn.com/dms/image/v2/D4D03AQEt_7L8VIuPKQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1714396290264?e=1795046400&v=beta&t=WQ-EN2p3CNNS3mhR10K5b3Jf-tQfkwvkEr18sGKB6lo',
   introduction: 'Bringing courtroom perspective to corporate legal operations, regulatory compliance, and thoughtful risk management.',
 };
 

@@ -1,4 +1,4 @@
-.experience { padding-top: 110px; padding-bottom: 125px; background: var(--ink); }
+.experience { padding-top: 110px; padding-bottom: 125px; background: rgba(26,17,14,.68); }
 .experience-main { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(55px, 10vw, 150px); }
 .experience .section-heading { position: sticky; top: 40px; align-self: start; }
 .section-lede { max-width: 310px; margin-top: 22px; color: #b6a795; font: 16px/1.5 var(--serif); }

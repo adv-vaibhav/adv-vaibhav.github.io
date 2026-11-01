@@ -1,4 +1,4 @@
-.contact { padding-top: 75px; padding-bottom: 93px; background: var(--ink); }
+.contact { padding-top: 75px; padding-bottom: 93px; background: rgba(26,17,14,.68); }
 .contact-panel { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; padding: clamp(32px, 6vw, 76px); border: 1px solid rgba(201,155,90,.28); background: linear-gradient(115deg, #302017, #211713 64%); }
 .contact-copy .eyebrow { margin-bottom: 17px; }
 .contact-copy h2 { font-size: clamp(45px, 5.5vw, 66px); }

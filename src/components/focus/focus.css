@@ -1,4 +1,4 @@
-.section-tinted { background: #211713; }
+.section-tinted { background: rgba(33,23,19,.72); }
 .focus { padding-top: 101px; padding-bottom: 122px; }
 
 .focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 58px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }

@@ -1,4 +1,4 @@
-.hero { position: relative; min-height: 740px; height: min(900px, 100svh); display: flex; align-items: center; padding: 115px clamp(24px, 11.1vw, 176px) 112px; overflow: hidden; background: #21150f url('../../../background.png') center 46% / cover no-repeat; }
+.hero { position: relative; min-height: 740px; height: min(900px, 100svh); display: flex; align-items: center; padding: 115px clamp(24px, 11.1vw, 176px) 112px; overflow: hidden; background: transparent; }
 .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17, 11, 9, .94) 0%, rgba(25, 15, 11, .82) 34%, rgba(27, 15, 10, .26) 73%, rgba(18, 11, 8, .08) 100%), linear-gradient(0deg, rgba(17, 11, 9, .75), transparent 32%, rgba(17, 11, 9, .22)); }
 .hero-content { position: relative; z-index: 1; max-width: 640px; padding-top: 15px; }
 
