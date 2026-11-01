@@ -31,7 +31,7 @@ const routes = {
   '/contact/': { title: 'Contact', content: renderContact() },
 };
 const pathname = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`;
-const route = routes[pathname] ?? routes['/'];
+const route = routes[pathname] ?? (pathname.startsWith('/blogs/') ? { title: 'Writing', content: renderBlogs() } : routes['/']);
 document.title = `${route.title} | Adv. Kumar Vaibhav`;
 app.innerHTML = [renderHeader(), `<main class="page-content" id="main-content">${route.content}</main>`, renderFooter()].join('\n');
 

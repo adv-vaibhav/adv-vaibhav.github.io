@@ -90,17 +90,21 @@ function titleFrom(markdown, filename) {
   return filename.replace(/^\d+-/, '').replace(/\.md$/i, '').replace(/[-_]/g, ' ');
 }
 
+function slugFrom(filename) {
+  return filename.replace(/^\d+-/, '').replace(/\.md$/i, '').toLowerCase();
+}
+
 const posts = Object.entries(markdownFiles)
   .map(([path, markdown]) => {
     const filename = path.split('/').pop();
     const number = Number(filename.match(/^(\d+)-/)?.[1] ?? 0);
-    return { filename, number, markdown, title: titleFrom(markdown, filename) };
+    return { filename, number, markdown, title: titleFrom(markdown, filename), slug: slugFrom(filename) };
   })
   .sort((a, b) => b.number - a.number);
 
 function renderList(activeFilename = posts[0]?.filename) {
   if (!posts.length) return '<p class="blog-empty">New writing will appear here soon.</p>';
-  return `<ol class="blog-list">${posts.map((post, index) => `<li><button class="blog-list-item${post.filename === activeFilename ? ' is-active' : ''}" type="button" data-blog="${escapeHtml(post.filename)}" aria-current="${post.filename === activeFilename ? 'true' : 'false'}"><span class="blog-list-number">${String(index + 1).padStart(2, '0')}</span><span class="blog-list-title">${escapeHtml(post.title)}</span><span class="blog-list-arrow" aria-hidden="true">↗</span></button></li>`).join('')}</ol>`;
+  return `<ol class="blog-list">${posts.map((post, index) => `<li><a class="blog-list-item${post.filename === activeFilename ? ' is-active' : ''}" href="/blogs/${encodeURIComponent(post.slug)}/" data-blog="${escapeHtml(post.filename)}"${post.filename === activeFilename ? ' aria-current="page"' : ''}><span class="blog-list-number">${String(index + 1).padStart(2, '0')}</span><span class="blog-list-title">${escapeHtml(post.title)}</span><span class="blog-list-arrow" aria-hidden="true">↗</span></a></li>`).join('')}</ol>`;
 }
 
 function renderPost(post) {
@@ -111,7 +115,8 @@ function renderPost(post) {
 }
 
 export function renderBlogs() {
-  const current = posts[0];
+  const slug = decodeURIComponent(window.location.pathname.split('/').filter(Boolean)[1] ?? '');
+  const current = posts.find((post) => post.slug === slug) ?? posts[0];
   return `<section class="blogs section-shell" id="blogs">${sectionIndex('01', 'WRITING')}<div class="blogs-heading"><p class="eyebrow eyebrow-dark">NOTES &amp; PERSPECTIVES</p><h2>Thoughts on <em>the law.</em></h2><p class="blogs-lede">Observations on legal practice, regulation, and the ideas shaping the profession.</p></div><div class="blogs-layout"><aside class="blog-sidebar" aria-label="Article list"><p class="column-label">THE JOURNAL <span>${String(posts.length).padStart(2, '0')} ARTICLES</span></p><div class="blog-list-wrap">${renderList(current?.filename)}</div></aside><div class="blog-reader" aria-live="polite">${renderPost(current)}</div></div><button class="blog-back" type="button" aria-label="Back to article list"><span aria-hidden="true">←</span> All articles</button></section>`;
 }
 
@@ -121,20 +126,42 @@ export function setupBlogs() {
   const sidebar = section.querySelector('.blog-sidebar');
   const reader = section.querySelector('.blog-reader');
   const back = section.querySelector('.blog-back');
-  section.querySelectorAll('[data-blog]').forEach((button) => button.addEventListener('click', () => {
-    const post = posts.find((item) => item.filename === button.dataset.blog);
+  const syncCurrentPost = (post, { scrollItem = false } = {}) => {
     if (!post) return;
     section.querySelectorAll('[data-blog]').forEach((item) => {
       const active = item.dataset.blog === post.filename;
       item.classList.toggle('is-active', active);
-      item.setAttribute('aria-current', String(active));
+      if (active) item.setAttribute('aria-current', 'page');
+      else item.removeAttribute('aria-current');
     });
     reader.innerHTML = renderPost(post);
-    section.classList.add('is-reading');
-    window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
-  }));
+    section.classList.toggle('is-reading', window.matchMedia('(max-width: 700px)').matches);
+    reader.scrollTop = 0;
+    if (scrollItem) section.querySelector(`[data-blog="${CSS.escape(post.filename)}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    document.title = `${post.title} | Adv. Kumar Vaibhav`;
+  };
+  section.addEventListener('click', (event) => {
+    const link = event.target.closest('a[data-blog]');
+    if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const post = posts.find((item) => item.filename === link.dataset.blog);
+    if (!post) return;
+    event.preventDefault();
+    history.pushState({}, '', link.href);
+    syncCurrentPost(post);
+  });
+  window.addEventListener('popstate', () => {
+    const slug = decodeURIComponent(window.location.pathname.split('/').filter(Boolean)[1] ?? '');
+    syncCurrentPost(posts.find((post) => post.slug === slug) ?? posts[0], { scrollItem: true });
+  });
+  const initialSlug = decodeURIComponent(window.location.pathname.split('/').filter(Boolean)[1] ?? '');
+  const initialPost = posts.find((post) => post.slug === initialSlug) ?? posts[0];
+  section.classList.toggle('is-reading', Boolean(initialSlug) && window.matchMedia('(max-width: 700px)').matches);
+  if (initialSlug && initialPost) document.title = `${initialPost.title} | Adv. Kumar Vaibhav`;
+  if (initialSlug && initialPost) requestAnimationFrame(() => section.querySelector(`[data-blog="${CSS.escape(initialPost.filename)}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
   back.addEventListener('click', () => {
     section.classList.remove('is-reading');
+    history.pushState({}, '', '/blogs/');
+    document.title = 'Writing | Adv. Kumar Vaibhav';
     sidebar.querySelector('[data-blog]')?.focus();
   });
 }
