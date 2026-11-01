@@ -1,0 +1,11 @@
+.section-tinted { background: #211713; }
+.focus { padding-top: 101px; padding-bottom: 122px; }
+
+.focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 58px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.focus-card { position: relative; min-height: 270px; padding: 29px 25px 27px; border-right: 1px solid var(--line); transition: background .25s ease; }
+.focus-card:first-child { border-left: 1px solid var(--line); }
+.focus-card:hover { background: rgba(207, 164, 103, .055); }
+.card-number { position: absolute; top: 27px; right: 23px; color: #8d7458; font-size: 9px; letter-spacing: .14em; }
+.focus-icon { margin: 8px 0 20px; color: var(--copper); font-size: 25px; }
+.focus-card h3 { min-height: 62px; margin: 0 0 13px; color: #f1e6d7; font: 500 25px/1.03 var(--serif); }
+.focus-card p { margin: 0; color: #ad9e8e; font-size: 11px; line-height: 1.7; }

@@ -1,0 +1,6 @@
+.site-footer { display: grid; grid-template-columns: 44px 1fr auto auto; gap: 20px; align-items: center; padding: 25px clamp(24px, 7.1vw, 112px); border-top: 1px solid var(--line); color: #9f8e7a; font-size: 10px; }
+.footer-brand { width: 34px; height: 34px; font-size: 15px; }
+.site-footer p { margin: 0; }
+.site-footer p span { padding: 0 4px; color: var(--copper); }
+.site-footer > a:not(.footer-brand) { color: #cfb893; }
+.site-footer small { color: #7f7060; font-size: 9px; }

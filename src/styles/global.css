@@ -1,0 +1,37 @@
+:root {
+  color-scheme: dark;
+  --ink: #1a110e;
+  --ink-soft: #261914;
+  --ink-card: #211713;
+  --parchment: #f2e9dc;
+  --parchment-muted: #cbbca9;
+  --copper: #c99b5a;
+  --copper-light: #e0bd82;
+  --line: rgba(221, 194, 153, .2);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; background: var(--ink); color: var(--parchment); font: 400 15px/1.7 var(--sans); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+::selection { background: var(--copper); color: var(--ink); }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 21px; color: var(--copper-light); font-size: 10px; font-weight: 600; letter-spacing: .2em; }
+h1 em, h2 em, h3 em { color: var(--copper-light); font-weight: 400; }
+.brand-mark, .footer-brand { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--copper); color: var(--copper-light); font: 600 18px var(--serif); letter-spacing: .04em; }
+.profile-label, .column-label { margin: 0 0 10px; color: #a98d6a; font-size: 9px; font-weight: 600; letter-spacing: .18em; }
+.site-nav a:hover, .text-link:hover, .inline-link:hover { color: var(--copper-light); }
+.text-link, .inline-link { color: #e8d8c5; font-size: 12px; transition: color .2s ease; }
+.text-link span, .inline-link span { margin-left: 10px; color: var(--copper-light); }
+
+.section-shell { position: relative; padding: 112px clamp(24px, 11.1vw, 176px); }
+.section-index { position: absolute; top: 119px; left: clamp(24px, 7.1vw, 112px); color: #a78d70; font-size: 9px; font-weight: 600; letter-spacing: .18em; writing-mode: vertical-rl; }
+.section-index span { color: var(--copper); padding: 9px 0; }
+
+.eyebrow-dark { color: #a77b44; }
+h2 { margin: 0; color: var(--parchment); font: 500 clamp(39px, 5vw, 59px)/.98 var(--serif); letter-spacing: -.025em; }
+
+.section-heading { max-width: 560px; }
+.section-heading .eyebrow { margin-bottom: 19px; }

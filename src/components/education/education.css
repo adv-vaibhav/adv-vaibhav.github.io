@@ -1,0 +1,14 @@
+.credentials { padding-top: 100px; padding-bottom: 114px; }
+.credentials-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(55px, 10vw, 150px); }
+.credentials .section-heading { align-self: start; }
+.credential-column { padding-top: 3px; }
+.credential-item { display: grid; grid-template-columns: 98px 1fr; gap: 15px; padding: 17px 0 19px; border-bottom: 1px solid var(--line); }
+.credential-year { padding-top: 3px; color: var(--copper-light); font-size: 9px; letter-spacing: .08em; }
+.credential-item h3 { margin: 0; color: #eee3d4; font: 500 22px/1.1 var(--serif); }
+.credential-item p { margin: 3px 0; color: #c7b49d; font-size: 11px; }
+.credential-item small { color: #9b8b79; font-size: 10px; }
+.certifications-label { margin: 34px 0 8px; }
+.credential-list { margin: 0; padding: 0; list-style: none; }
+.credential-list li { display: grid; grid-template-columns: 50px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(221,194,153,.12); color: #e4d5c3; font-size: 11px; }
+.credential-list li > span { color: var(--copper-light); font-size: 9px; }
+.credential-list small { grid-column: 2; margin-top: -8px; color: #968675; font-size: 10px; }

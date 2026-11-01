@@ -1,0 +1,16 @@
+{
+  "name": "kumar-vaibhav-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "vite": "^5.4.18"
+  }
+}

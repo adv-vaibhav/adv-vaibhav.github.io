@@ -1,0 +1,72 @@
+@media (max-width: 900px) {
+  .site-header { height: 78px; }
+  .site-nav { gap: 18px; font-size: 11px; }
+  .hero { min-height: 700px; background-position: 56% center; }
+  .hero-note { right: 35px; }
+  .section-shell { padding-top: 90px; padding-bottom: 90px; }
+  .section-index { top: 95px; }
+  .intro { gap: 40px; }
+  .focus-grid { grid-template-columns: repeat(2, 1fr); }
+  .focus-card:nth-child(3) { border-left: 1px solid var(--line); }
+  .focus-card:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .experience-main, .credentials-layout { gap: 50px; }
+}
+
+@media (max-width: 640px) {
+  html { scroll-padding-top: 70px; }
+  .site-header { position: absolute; height: 70px; padding: 0 20px; }
+  .brand-mark { width: 36px; height: 36px; font-size: 16px; }
+  .brand { gap: 10px; }
+  .brand-name { font-size: 12px; }
+  .brand-caption { font-size: 7px; letter-spacing: .13em; }
+  .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 10px; border: 1px solid var(--line); background: rgba(26,17,14,.6); }
+  .menu-toggle span { height: 1px; width: 100%; background: var(--copper-light); transition: transform .2s ease; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3px) rotate(-45deg); }
+  .site-nav { position: absolute; top: 69px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 7px 20px 19px; border-bottom: 1px solid var(--line); background: rgba(26,17,14,.97); font-size: 13px; }
+  .site-nav.is-open { display: flex; }
+  .site-nav > a { padding: 12px 4px; border-bottom: 1px solid rgba(221,194,153,.1); }
+  .site-nav .nav-contact { justify-content: space-between; margin-top: 11px; padding: 11px 13px; }
+  .hero { min-height: 720px; height: 100svh; max-height: 900px; padding: 126px 25px 110px; background-position: 58% center; }
+  .hero-shade { background: linear-gradient(90deg, rgba(17,11,9,.91), rgba(22,13,9,.58) 70%, rgba(20,12,8,.27)), linear-gradient(0deg, rgba(17,11,9,.82), transparent 48%, rgba(17,11,9,.24)); }
+  .hero h1 { font-size: clamp(65px, 18vw, 96px); }
+  .hero-role { max-width: 300px; font-size: 13px; line-height: 1.6; }
+  .hero-intro { max-width: 320px; font-size: 13px; }
+  .hero-note { right: 24px; bottom: 70px; font-size: 15px; }
+  .scroll-cue { bottom: 24px; left: 24px; font-size: 8px; }
+  .section-shell { padding: 74px 25px; }
+  .section-index { position: static; margin-bottom: 32px; writing-mode: initial; font-size: 8px; }
+  .section-index span { padding: 0 8px; }
+  .intro { grid-template-columns: 1fr; gap: 34px; }
+  h2 { font-size: clamp(40px, 12vw, 54px); }
+  .body-large { font-size: 18px; }
+  .profile-card { padding: 25px; }
+  .focus-grid { grid-template-columns: 1fr; margin-top: 36px; }
+  .focus-card, .focus-card:first-child, .focus-card:nth-child(3) { min-height: auto; padding: 24px 20px; border: 0; border-top: 1px solid var(--line); }
+  .focus-card:last-child { border-bottom: 1px solid var(--line); }
+  .focus-icon { margin: 0 0 12px; }
+  .focus-card h3 { min-height: 0; font-size: 24px; }
+  .focus-card p { max-width: 350px; font-size: 12px; }
+  .experience-main, .credentials-layout { grid-template-columns: 1fr; gap: 35px; }
+  .experience .section-heading { position: static; }
+  .section-lede { margin-top: 14px; }
+  .timeline { margin-left: 6px; padding-left: 24px; }
+  .timeline-dot { left: -30px; }
+  .timeline-item { padding-bottom: 29px; }
+  .timeline-item h3 { font-size: 23px; }
+  .timeline-item > p:last-child { font-size: 11px; }
+  .credential-item { grid-template-columns: 78px 1fr; gap: 10px; }
+  .credential-item h3 { font-size: 20px; }
+  .credential-list li { grid-template-columns: 42px 1fr; }
+  .contact { padding-top: 45px; }
+  .contact-panel { grid-template-columns: 1fr; gap: 30px; padding: 30px 22px; }
+  .contact-copy h2 { font-size: 52px; }
+  .contact-links > a { grid-template-columns: 38px 1fr 16px; gap: 8px; font-size: 11px; }
+  .site-footer { grid-template-columns: 38px 1fr auto; gap: 10px; padding: 20px 22px; }
+  .site-footer > a:not(.footer-brand) { grid-column: 2; }
+  .site-footer small { grid-column: 3; grid-row: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

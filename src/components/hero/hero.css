@@ -1,0 +1,24 @@
+.hero { position: relative; min-height: 740px; height: min(900px, 100svh); display: flex; align-items: center; padding: 115px clamp(24px, 11.1vw, 176px) 112px; overflow: hidden; background: #21150f url('../../../background.png') center 46% / cover no-repeat; }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17, 11, 9, .94) 0%, rgba(25, 15, 11, .82) 34%, rgba(27, 15, 10, .26) 73%, rgba(18, 11, 8, .08) 100%), linear-gradient(0deg, rgba(17, 11, 9, .75), transparent 32%, rgba(17, 11, 9, .22)); }
+.hero-content { position: relative; z-index: 1; max-width: 640px; padding-top: 15px; }
+
+.eyebrow-line { width: 36px; height: 1px; background: var(--copper); }
+.hero h1 { margin: 0; color: #f7eee2; font: 500 clamp(68px, 8.4vw, 112px)/.78 var(--serif); letter-spacing: -.04em; }
+
+.hero h1 em { display: inline-block; margin-top: 16px; }
+.hero-role { margin: 32px 0 13px; color: #e2d3c1; font-size: clamp(14px, 1.5vw, 18px); letter-spacing: .035em; }
+.role-separator { margin: 0 8px; color: var(--copper); }
+.hero-intro { max-width: 475px; margin: 0; color: #d1c2b2; font-size: 14px; }
+.hero-actions { display: flex; align-items: center; gap: 32px; margin-top: 31px; }
+.button { display: inline-flex; align-items: center; gap: 24px; padding: 13px 18px; font-size: 11px; font-weight: 600; letter-spacing: .05em; }
+.button-gold { background: var(--copper); color: #21150f; transition: background .2s ease; }
+.button-gold:hover { background: var(--copper-light); }
+.button { display: inline-flex; align-items: center; gap: 24px; padding: 13px 18px; font-size: 11px; font-weight: 600; letter-spacing: .05em; }
+.button-gold { background: var(--copper); color: #21150f; transition: background .2s ease; }
+.button-gold:hover { background: var(--copper-light); }
+.text-link, .inline-link { color: #e8d8c5; font-size: 12px; transition: color .2s ease; }
+.text-link span, .inline-link span { margin-left: 10px; color: var(--copper-light); }
+.hero-note { position: absolute; z-index: 1; right: clamp(26px, 9vw, 140px); bottom: 100px; display: flex; align-items: center; gap: 15px; color: #d7c8b7; font: italic 17px/1.3 var(--serif); }
+.note-rule { width: 37px; height: 1px; background: var(--copper); }
+.scroll-cue { position: absolute; z-index: 1; bottom: 36px; left: clamp(24px, 7.1vw, 112px); display: flex; align-items: center; gap: 12px; color: #baa893; font-size: 9px; letter-spacing: .18em; }
+.scroll-cue span { display: block; width: 1px; height: 28px; background: var(--copper); }

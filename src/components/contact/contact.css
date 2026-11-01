@@ -1,0 +1,12 @@
+.contact { padding-top: 75px; padding-bottom: 93px; background: var(--ink); }
+.contact-panel { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; padding: clamp(32px, 6vw, 76px); border: 1px solid rgba(201,155,90,.28); background: linear-gradient(115deg, #302017, #211713 64%); }
+.contact-copy .eyebrow { margin-bottom: 17px; }
+.contact-copy h2 { font-size: clamp(45px, 5.5vw, 66px); }
+.contact-copy > p:last-child { max-width: 350px; margin: 18px 0 0; color: #b8a795; font-size: 12px; }
+.contact-links { border-top: 1px solid var(--line); }
+.contact-links > a { display: grid; grid-template-columns: 42px 1fr 20px; gap: 12px; align-items: center; min-height: 80px; border-bottom: 1px solid var(--line); color: #f1e7dc; font-size: 12px; transition: color .2s ease; }
+.contact-links > a:hover { color: var(--copper-light); }
+.contact-links small { display: block; margin-bottom: 3px; color: #a58d70; font-size: 8px; font-weight: 600; letter-spacing: .17em; }
+.contact-links b { color: var(--copper-light); font-size: 16px; font-weight: 400; }
+.contact-icon { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(201,155,90,.35); color: var(--copper-light); font-size: 14px; }
+.linkedin-icon { font: 600 14px var(--sans); }
